@@ -57,4 +57,21 @@
             android:text="Completed"
             android:id="@+id/is_completed" />
     </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rating:"
+            android:id="@+id/textView3" />
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/game_rating" />
+
+    </TableRow>
 </TableLayout>

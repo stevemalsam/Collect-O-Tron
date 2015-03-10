@@ -16,7 +16,7 @@ import android.view.MenuItem;
  * This activity is mostly just a 'shell' activity containing nothing
  * more than a {@link GameDetailFragment}.
  */
-public class GameDetailActivity extends ActionBarActivity {
+public class GameDetailActivity extends ActionBarActivity implements GameDetailFragment.Callbacks {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,5 +63,10 @@ public class GameDetailActivity extends ActionBarActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onSave() {
+        finish();
     }
 }

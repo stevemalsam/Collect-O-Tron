@@ -14,5 +14,6 @@ public class Game {
     public String name;
     public String platform;
     public boolean isCompleted;
+    public float rating;
     URL boxArtURL;
 }

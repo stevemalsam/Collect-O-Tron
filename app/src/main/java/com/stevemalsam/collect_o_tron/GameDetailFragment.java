@@ -1,5 +1,6 @@
 package com.stevemalsam.collect_o_tron;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.RatingBar;
 
 import com.stevemalsam.collect_o_tron.models.Game;
 
@@ -33,12 +34,27 @@ public class GameDetailFragment extends Fragment {
     @InjectView(R.id.game_name) EditText gameName;
     @InjectView(R.id.game_platform) EditText gamePlatform;
     @InjectView(R.id.is_completed) CheckBox isCompleted;
+    @InjectView(R.id.game_rating) RatingBar gameRating;
+
+    private Callbacks mCallbacks;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
     public GameDetailFragment() {
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        // Activities containing this fragment must implement its callbacks.
+        if (!(activity instanceof Callbacks)) {
+            throw new IllegalStateException("Activity must implement fragment's callbacks.");
+        }
+
+        mCallbacks = (Callbacks) activity;
     }
 
     @Override
@@ -68,8 +84,11 @@ public class GameDetailFragment extends Fragment {
             game.name = gameName.getText().toString();
             game.platform = gamePlatform.getText().toString();
             game.isCompleted = isCompleted.isChecked();
+            game.rating = gameRating.getRating();
 
             Game.Games.add(game);
+
+            mCallbacks.onSave();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -86,5 +105,9 @@ public class GameDetailFragment extends Fragment {
 //        }
 
         return rootView;
+    }
+
+    public interface Callbacks {
+        public void onSave();
     }
 }
