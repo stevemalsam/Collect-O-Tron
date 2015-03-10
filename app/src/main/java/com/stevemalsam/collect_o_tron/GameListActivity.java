@@ -2,10 +2,12 @@ package com.stevemalsam.collect_o_tron;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v4.app.NavUtils;
 
 import android.view.MenuItem;
+
+import static android.support.v4.app.NavUtils.navigateUpFromSameTask;
 
 
 /**
@@ -17,7 +19,7 @@ import android.view.MenuItem;
  * item details side-by-side using two vertical panes.
  * <p/>
  * The activity makes heavy use of fragments. The list of items is a
- * {@link GameListFragment} and the item details
+ * {@link GameListFragment} and the item details`
  * (if present) is a {@link GameDetailFragment}.
  * <p/>
  * This activity also implements the required
@@ -68,7 +70,7 @@ public class GameListActivity extends ActionBarActivity
             //
             // http://developer.android.com/design/patterns/navigation.html#up-vs-back
             //
-//            navigateUpFromSameTask(this);
+            navigateUpFromSameTask(this);
             return true;
         }
         return super.onOptionsItemSelected(item);
