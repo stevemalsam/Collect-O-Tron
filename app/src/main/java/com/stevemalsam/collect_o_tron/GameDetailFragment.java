@@ -12,8 +12,6 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
-
-import com.stevemalsam.collect_o_tron.dummy.DummyContent;
 import com.stevemalsam.collect_o_tron.models.Game;
 
 import butterknife.ButterKnife;

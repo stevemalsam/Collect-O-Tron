@@ -7,8 +7,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-
-import com.stevemalsam.collect_o_tron.dummy.DummyContent;
 import com.stevemalsam.collect_o_tron.models.Game;
 
 /**
@@ -74,11 +72,12 @@ public class GameListFragment extends ListFragment {
         super.onCreate(savedInstanceState);
 
         // TODO: replace with a real list adapter.
-        adapter = new ArrayAdapter<Game>(
-                getActivity(),
-                android.R.layout.simple_list_item_activated_1,
-                android.R.id.text1,
-                Game.Games);
+//        adapter = new ArrayAdapter<Game>(
+//                getActivity(),
+//                android.R.layout.simple_list_item_activated_1,
+//                android.R.id.text1,
+//                Game.Games);
+        adapter = new GamesAdapter(getActivity(), R.layout.list_game_item, Game.Games);
         setListAdapter(adapter);
     }
 
@@ -125,7 +124,7 @@ public class GameListFragment extends ListFragment {
 
         // Notify the active callbacks interface (the activity, if the
         // fragment is attached to one) that an item has been selected.
-        mCallbacks.onItemSelected(DummyContent.ITEMS.get(position).id);
+//        mCallbacks.onItemSelected(DummyContent.ITEMS.get(position).id);
     }
 
     @Override
