@@ -8,6 +8,7 @@ import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.BaseAdapter;
 
 import static android.support.v4.app.NavUtils.navigateUpFromSameTask;
 
@@ -29,7 +30,7 @@ import static android.support.v4.app.NavUtils.navigateUpFromSameTask;
  * to listen for item selections.
  */
 public class GameListActivity extends ActionBarActivity
-        implements GameListFragment.Callbacks {
+        implements GameListFragment.Callbacks, GameDetailFragment.Callbacks {
 
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
@@ -125,5 +126,12 @@ public class GameListActivity extends ActionBarActivity
 //            detailIntent.putExtra(GameDetailFragment.ARG_ITEM_ID, id);
 //            startActivity(detailIntent);
 //        }
+    }
+
+    @Override
+    public void onSave() {
+        GameListFragment fragment = (GameListFragment)getSupportFragmentManager().findFragmentById(R.id.game_list);
+        BaseAdapter adapter = (BaseAdapter) fragment.getListAdapter();
+        adapter.notifyDataSetChanged();
     }
 }
