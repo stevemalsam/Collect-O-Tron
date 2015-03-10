@@ -29,4 +29,9 @@ public class RateGamesActivity extends ActionBarActivity implements ListGamesFra
     @Override
     public void onItemSelected(String id) {
     }
+
+    @Override
+    public boolean shouldDisplayRating() {
+        return true;
+    }
 }

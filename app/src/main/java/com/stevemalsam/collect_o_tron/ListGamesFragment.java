@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.stevemalsam.collect_o_tron.models.Game;
@@ -36,7 +35,8 @@ public class ListGamesFragment extends ListFragment {
      * The current activated item position. Only used on tablets.
      */
     private int mActivatedPosition = ListView.INVALID_POSITION;
-    private ArrayAdapter<Game> adapter;
+    private GamesAdapter adapter;
+    private boolean shouldDisplayRating;
 
     /**
      * A callback interface that all activities containing this fragment must
@@ -48,6 +48,7 @@ public class ListGamesFragment extends ListFragment {
          * Callback for when an item has been selected.
          */
         public void onItemSelected(String id);
+        public boolean shouldDisplayRating();
     }
 
     /**
@@ -57,6 +58,11 @@ public class ListGamesFragment extends ListFragment {
     private static Callbacks sDummyCallbacks = new Callbacks() {
         @Override
         public void onItemSelected(String id) {
+        }
+
+        @Override
+        public boolean shouldDisplayRating() {
+            return false;
         }
     };
 
@@ -77,7 +83,10 @@ public class ListGamesFragment extends ListFragment {
 //                android.R.layout.simple_list_item_activated_1,
 //                android.R.id.text1,
 //                Game.Games);
-        adapter = new GamesAdapter(getActivity(), R.layout.list_game_item, Game.Games);
+        adapter = new GamesAdapter(getActivity(),
+                shouldDisplayRating ? R.layout.rate_game_item : R.layout.list_game_item,
+                Game.Games
+        );
         setListAdapter(adapter);
     }
 
@@ -108,6 +117,7 @@ public class ListGamesFragment extends ListFragment {
         }
 
         mCallbacks = (Callbacks) activity;
+        shouldDisplayRating = mCallbacks.shouldDisplayRating();
     }
 
     @Override

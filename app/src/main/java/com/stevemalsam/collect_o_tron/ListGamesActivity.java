@@ -128,6 +128,11 @@ public class ListGamesActivity extends ActionBarActivity
     }
 
     @Override
+    public boolean shouldDisplayRating() {
+        return false;
+    }
+
+    @Override
     public void onSave() {
         ListGamesFragment fragment = (ListGamesFragment)getSupportFragmentManager().findFragmentById(R.id.game_list);
         BaseAdapter adapter = (BaseAdapter) fragment.getListAdapter();
