@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.NavUtils;
 
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import static android.support.v4.app.NavUtils.navigateUpFromSameTask;
@@ -72,8 +74,30 @@ public class GameListActivity extends ActionBarActivity
             //
             navigateUpFromSameTask(this);
             return true;
+        } else if (id == R.id.action_add) {
+            if (mTwoPane) {
+                // In two-pane mode, show the detail view in this activity by
+                // adding or replacing the detail fragment using a
+                // fragment transaction.
+                GameDetailFragment fragment = new GameDetailFragment();
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.game_detail_container, fragment)
+                        .commit();
+            } else {
+                // In single-pane mode, simply start the detail activity
+                // for the selected item ID.
+                Intent detailIntent = new Intent(this, GameDetailActivity.class);
+                startActivity(detailIntent);
+            }
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_add, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     /**
@@ -82,24 +106,24 @@ public class GameListActivity extends ActionBarActivity
      */
     @Override
     public void onItemSelected(String id) {
-        if (mTwoPane) {
-            // In two-pane mode, show the detail view in this activity by
-            // adding or replacing the detail fragment using a
-            // fragment transaction.
-            Bundle arguments = new Bundle();
-            arguments.putString(GameDetailFragment.ARG_ITEM_ID, id);
-            GameDetailFragment fragment = new GameDetailFragment();
-            fragment.setArguments(arguments);
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.game_detail_container, fragment)
-                    .commit();
-
-        } else {
-            // In single-pane mode, simply start the detail activity
-            // for the selected item ID.
-            Intent detailIntent = new Intent(this, GameDetailActivity.class);
-            detailIntent.putExtra(GameDetailFragment.ARG_ITEM_ID, id);
-            startActivity(detailIntent);
-        }
+//        if (mTwoPane) {
+//            // In two-pane mode, show the detail view in this activity by
+//            // adding or replacing the detail fragment using a
+//            // fragment transaction.
+//            Bundle arguments = new Bundle();
+//            arguments.putString(GameDetailFragment.ARG_ITEM_ID, id);
+//            GameDetailFragment fragment = new GameDetailFragment();
+//            fragment.setArguments(arguments);
+//            getSupportFragmentManager().beginTransaction()
+//                    .replace(R.id.game_detail_container, fragment)
+//                    .commit();
+//
+//        } else {
+//            // In single-pane mode, simply start the detail activity
+//            // for the selected item ID.
+//            Intent detailIntent = new Intent(this, GameDetailActivity.class);
+//            detailIntent.putExtra(GameDetailFragment.ARG_ITEM_ID, id);
+//            startActivity(detailIntent);
+//        }
     }
 }

@@ -9,6 +9,7 @@ import android.widget.ListView;
 
 
 import com.stevemalsam.collect_o_tron.dummy.DummyContent;
+import com.stevemalsam.collect_o_tron.models.Game;
 
 /**
  * A list fragment representing a list of Games. This fragment
@@ -72,11 +73,11 @@ public class GameListFragment extends ListFragment {
         super.onCreate(savedInstanceState);
 
         // TODO: replace with a real list adapter.
-        setListAdapter(new ArrayAdapter<DummyContent.DummyItem>(
+        setListAdapter(new ArrayAdapter<Game>(
                 getActivity(),
                 android.R.layout.simple_list_item_activated_1,
                 android.R.id.text1,
-                DummyContent.ITEMS));
+                Game.Games));
     }
 
     @Override

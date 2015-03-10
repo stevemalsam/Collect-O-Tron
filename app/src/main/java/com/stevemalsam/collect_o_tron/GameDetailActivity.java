@@ -38,11 +38,11 @@ public class GameDetailActivity extends ActionBarActivity {
         if (savedInstanceState == null) {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
-            Bundle arguments = new Bundle();
-            arguments.putString(GameDetailFragment.ARG_ITEM_ID,
-                    getIntent().getStringExtra(GameDetailFragment.ARG_ITEM_ID));
+//            Bundle arguments = new Bundle();
+//            arguments.putString(GameDetailFragment.ARG_ITEM_ID,
+//                    getIntent().getStringExtra(GameDetailFragment.ARG_ITEM_ID));
             GameDetailFragment fragment = new GameDetailFragment();
-            fragment.setArguments(arguments);
+//            fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.game_detail_container, fragment)
                     .commit();
