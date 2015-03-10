@@ -22,6 +22,8 @@ public class MainActivity extends ActionBarActivity {
 
     @OnClick(R.id.listButton)
     public void toList(Button button) {
+        Intent intent = new Intent(this, GameListActivity.class);
+        startActivity(intent);
     }
 
     @OnClick(R.id.rateButton)
