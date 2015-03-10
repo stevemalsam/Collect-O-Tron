@@ -9,4 +9,5 @@
     <string name="title_game_detail">Game Detail</string>
     <string name="action_add">New Game</string>
     <string name="action_save">Save</string>
+    <string name="title_activity_rate_games">Rate Games</string>
 </resources>

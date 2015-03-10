@@ -28,6 +28,7 @@ public class MainActivity extends ActionBarActivity {
 
     @OnClick(R.id.rateButton)
     public void toRate(Button button) {
-
+        Intent intent = new Intent(this, RateGamesActivity.class);
+        startActivity(intent);
     }
 }

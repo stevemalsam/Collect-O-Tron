@@ -32,6 +32,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ListGamesActivity" />
         </activity>
+        <activity
+            android:name=".RateGamesActivity"
+            android:label="@string/title_activity_rate_games"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.stevemalsam.collect_o_tron.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
