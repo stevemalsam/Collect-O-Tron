@@ -3,7 +3,6 @@ package com.stevemalsam.collect_o_tron;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v4.app.NavUtils;
 
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -22,15 +21,15 @@ import static android.support.v4.app.NavUtils.navigateUpFromSameTask;
  * item details side-by-side using two vertical panes.
  * <p/>
  * The activity makes heavy use of fragments. The list of items is a
- * {@link GameListFragment} and the item details`
+ * {@link ListGamesFragment} and the item details`
  * (if present) is a {@link GameDetailFragment}.
  * <p/>
  * This activity also implements the required
- * {@link GameListFragment.Callbacks} interface
+ * {@link ListGamesFragment.Callbacks} interface
  * to listen for item selections.
  */
-public class GameListActivity extends ActionBarActivity
-        implements GameListFragment.Callbacks, GameDetailFragment.Callbacks {
+public class ListGamesActivity extends ActionBarActivity
+        implements ListGamesFragment.Callbacks, GameDetailFragment.Callbacks {
 
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
@@ -54,7 +53,7 @@ public class GameListActivity extends ActionBarActivity
 
             // In two-pane mode, list items should be given the
             // 'activated' state when touched.
-            ((GameListFragment) getSupportFragmentManager()
+            ((ListGamesFragment) getSupportFragmentManager()
                     .findFragmentById(R.id.game_list))
                     .setActivateOnItemClick(true);
         }
@@ -102,7 +101,7 @@ public class GameListActivity extends ActionBarActivity
     }
 
     /**
-     * Callback method from {@link GameListFragment.Callbacks}
+     * Callback method from {@link ListGamesFragment.Callbacks}
      * indicating that the item with the given ID was selected.
      */
     @Override
@@ -130,7 +129,7 @@ public class GameListActivity extends ActionBarActivity
 
     @Override
     public void onSave() {
-        GameListFragment fragment = (GameListFragment)getSupportFragmentManager().findFragmentById(R.id.game_list);
+        ListGamesFragment fragment = (ListGamesFragment)getSupportFragmentManager().findFragmentById(R.id.game_list);
         BaseAdapter adapter = (BaseAdapter) fragment.getListAdapter();
         adapter.notifyDataSetChanged();
     }

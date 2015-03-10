@@ -20,7 +20,7 @@ import butterknife.InjectView;
 
 /**
  * A fragment representing a single Game detail screen.
- * This fragment is either contained in a {@link GameListActivity}
+ * This fragment is either contained in a {@link ListGamesActivity}
  * in two-pane mode (on tablets) or a {@link GameDetailActivity}
  * on handsets.
  */

@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".GameListActivity"
+            android:name=".ListGamesActivity"
             android:label="@string/title_game_list"
             android:parentActivityName=".MainActivity" >
             <meta-data
@@ -27,10 +27,10 @@
         <activity
             android:name=".GameDetailActivity"
             android:label="@string/title_game_detail"
-            android:parentActivityName=".GameListActivity" >
+            android:parentActivityName=".ListGamesActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.stevemalsam.collect_o_tron.GameListActivity" />
+                android:value=".ListGamesActivity" />
         </activity>
     </application>
 

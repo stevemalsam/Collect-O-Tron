@@ -18,7 +18,7 @@ import com.stevemalsam.collect_o_tron.models.Game;
  * Activities containing this fragment MUST implement the {@link Callbacks}
  * interface.
  */
-public class GameListFragment extends ListFragment {
+public class ListGamesFragment extends ListFragment {
 
     /**
      * The serialization (saved instance state) Bundle key representing the
@@ -64,7 +64,7 @@ public class GameListFragment extends ListFragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public GameListFragment() {
+    public ListGamesFragment() {
     }
 
     @Override

@@ -3,7 +3,7 @@
     android:layout_height="match_parent" android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp" android:baselineAligned="false"
     android:divider="?android:attr/dividerHorizontal" android:orientation="horizontal"
-    android:showDividers="middle" tools:context="com.stevemalsam.collect_o_tron.GameListActivity">
+    android:showDividers="middle" tools:context="com.stevemalsam.collect_o_tron.ListGamesActivity">
 
     <!--
     This layout is a two-pane layout for the Games
@@ -12,7 +12,7 @@
     -->
 
     <fragment android:id="@+id/game_list"
-        android:name="com.stevemalsam.collect_o_tron.GameListFragment" android:layout_width="0dp"
+        android:name="com.stevemalsam.collect_o_tron.ListGamesFragment" android:layout_width="0dp"
         android:layout_height="match_parent" android:layout_weight="1"
         tools:layout="@android:layout/list_content" />
 
