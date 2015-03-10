@@ -28,7 +28,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/gameName" />
+            android:id="@+id/game_name" />
     </TableRow>
 
     <TableRow
@@ -44,7 +44,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/gamePlatform" />
+            android:id="@+id/game_platform" />
     </TableRow>
 
     <TableRow
@@ -55,6 +55,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Completed"
-            android:id="@+id/checkBox" />
+            android:id="@+id/is_completed" />
     </TableRow>
 </TableLayout>

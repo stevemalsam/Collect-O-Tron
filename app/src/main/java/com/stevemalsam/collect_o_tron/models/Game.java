@@ -11,8 +11,8 @@ public class Game {
 
     public static List<Game> Games = new ArrayList<>();
 
-    String name;
-    String console;
-    boolean isCompleted;
+    public String name;
+    public String platform;
+    public boolean isCompleted;
     URL boxArtURL;
 }

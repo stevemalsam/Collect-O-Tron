@@ -38,6 +38,7 @@ public class GameListFragment extends ListFragment {
      * The current activated item position. Only used on tablets.
      */
     private int mActivatedPosition = ListView.INVALID_POSITION;
+    private ArrayAdapter<Game> adapter;
 
     /**
      * A callback interface that all activities containing this fragment must
@@ -73,11 +74,12 @@ public class GameListFragment extends ListFragment {
         super.onCreate(savedInstanceState);
 
         // TODO: replace with a real list adapter.
-        setListAdapter(new ArrayAdapter<Game>(
+        adapter = new ArrayAdapter<Game>(
                 getActivity(),
                 android.R.layout.simple_list_item_activated_1,
                 android.R.id.text1,
-                Game.Games));
+                Game.Games);
+        setListAdapter(adapter);
     }
 
     @Override
@@ -89,6 +91,12 @@ public class GameListFragment extends ListFragment {
                 && savedInstanceState.containsKey(STATE_ACTIVATED_POSITION)) {
             setActivatedPosition(savedInstanceState.getInt(STATE_ACTIVATED_POSITION));
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        adapter.notifyDataSetChanged();
     }
 
     @Override

@@ -5,12 +5,19 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 
 
 import com.stevemalsam.collect_o_tron.dummy.DummyContent;
+import com.stevemalsam.collect_o_tron.models.Game;
+
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 
 /**
  * A fragment representing a single Game detail screen.
@@ -25,10 +32,9 @@ public class GameDetailFragment extends Fragment {
      */
     public static final String ARG_ITEM_ID = "item_id";
 
-    /**
-     * The dummy content this fragment is presenting.
-     */
-    private DummyContent.DummyItem mItem;
+    @InjectView(R.id.game_name) EditText gameName;
+    @InjectView(R.id.game_platform) EditText gamePlatform;
+    @InjectView(R.id.is_completed) CheckBox isCompleted;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -54,13 +60,27 @@ public class GameDetailFragment extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_save, menu);
         super.onCreateOptionsMenu(menu, inflater);
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if(id == R.id.action_save) {
+            Game game = new Game();
+            game.name = gameName.getText().toString();
+            game.platform = gamePlatform.getText().toString();
+            game.isCompleted = isCompleted.isChecked();
+
+            Game.Games.add(game);
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_game_detail, container, false);
+        ButterKnife.inject(this, rootView);
 
         // Show the dummy content as text in a TextView.
 //        if (mItem != null) {
