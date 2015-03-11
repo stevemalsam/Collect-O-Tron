@@ -95,10 +95,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/game_rating"
-                android:max="100"
+                android:max="5"
                 android:numStars="5"
-                android:stepSize="0.5"
-                android:isIndicator="true"/>
+                android:stepSize="0.5"/>
         </LinearLayout>
 
     </TableRow>
