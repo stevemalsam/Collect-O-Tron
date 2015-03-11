@@ -1,4 +1,4 @@
-package com.stevemalsam.collect_o_tron;
+package com.stevemalsam.collect_o_tron.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,7 @@ import android.widget.CheckBox;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.stevemalsam.collect_o_tron.R;
 import com.stevemalsam.collect_o_tron.models.Game;
 
 import java.util.List;

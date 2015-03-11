@@ -27,7 +27,7 @@
             android:text="Name"
             android:id="@+id/textView" />
 
-        <EditText
+        <AutoCompleteTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/game_name" />

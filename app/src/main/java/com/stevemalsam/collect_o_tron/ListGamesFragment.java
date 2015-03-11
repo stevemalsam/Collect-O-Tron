@@ -6,6 +6,7 @@ import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ListView;
 
+import com.stevemalsam.collect_o_tron.adapters.GamesAdapter;
 import com.stevemalsam.collect_o_tron.models.Game;
 
 /**

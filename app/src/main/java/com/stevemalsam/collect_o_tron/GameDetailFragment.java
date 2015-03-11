@@ -9,10 +9,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AutoCompleteTextView;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RatingBar;
 
+import com.stevemalsam.collect_o_tron.adapters.GameAutocompleteAdapter;
 import com.stevemalsam.collect_o_tron.models.Game;
 
 import butterknife.ButterKnife;
@@ -31,7 +33,7 @@ public class GameDetailFragment extends Fragment {
      */
     public static final String ARG_ITEM_ID = "item_id";
 
-    @InjectView(R.id.game_name) EditText gameName;
+    @InjectView(R.id.game_name) AutoCompleteTextView gameName;
     @InjectView(R.id.game_platform) EditText gamePlatform;
     @InjectView(R.id.is_completed) CheckBox isCompleted;
     @InjectView(R.id.game_rating) RatingBar gameRating;
@@ -98,6 +100,7 @@ public class GameDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_game_detail, container, false);
         ButterKnife.inject(this, rootView);
+        gameName.setAdapter(new GameAutocompleteAdapter(getActivity(), android.R.layout.simple_spinner_dropdown_item));
 
         // Show the dummy content as text in a TextView.
 //        if (mItem != null) {
