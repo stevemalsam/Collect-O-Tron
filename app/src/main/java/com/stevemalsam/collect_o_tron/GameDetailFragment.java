@@ -9,6 +9,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -19,6 +20,7 @@ import com.stevemalsam.collect_o_tron.models.Game;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnItemClick;
 
 /**
  * A fragment representing a single Game detail screen.
@@ -100,16 +102,25 @@ public class GameDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_game_detail, container, false);
         ButterKnife.inject(this, rootView);
-        gameName.setAdapter(new GameAutocompleteAdapter(getActivity(), android.R.layout.simple_spinner_dropdown_item));
-
-        // Show the dummy content as text in a TextView.
-//        if (mItem != null) {
-//            ((TextView) rootView.findViewById(R.id.game_detail)).setText(mItem.content);
-//        }
+        gameName.setAdapter(new GameAutocompleteAdapter(getActivity()));
+        gameName.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                GameAutocompleteAdapter.GameData item = (GameAutocompleteAdapter.GameData) parent.getItemAtPosition(position);
+                gameName.setText(item.GameTitle);
+                gamePlatform.setText(item.Platform);
+            }
+        });
 
         return rootView;
     }
 
+//    @OnItemClick(R.id.game_name)
+//    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//        GameAutocompleteAdapter.GameData item = (GameAutocompleteAdapter.GameData) parent.getItemAtPosition(position);
+//        gameName.setText(item.GameTitle);
+//        gamePlatform.setText(item.Platform);
+//    }
     public interface Callbacks {
         public void onSave();
     }
